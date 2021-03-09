@@ -62,16 +62,17 @@ public class Board {
 
 	//This method requires your input
 	public static void setPiece(int iIn, int jIn, Piece p){
+		board[iIn][jIn].setPiece(p);
 	}
 	
 	//This method requires your input
 	public static Piece getPiece(int iIn, int jIn){
-		return new Piece();
+		return board[iIn][jIn].getPiece();
 	}
 	
 	//This method requires your input
-	public static boolean hasPiece(int i, int j){		
-		return false;
+	public static boolean hasPiece(int i, int j){	
+		return true;
 	}
 
 }
