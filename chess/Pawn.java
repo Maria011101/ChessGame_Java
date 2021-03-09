@@ -2,6 +2,10 @@ package chess;
 
 public class Pawn extends Piece{	
 	public Pawn(PieceColour p){
-        setSymbol("♟︎");
+        if (p==PieceColour.BLACK)
+            setSymbol("♟︎");
+        else
+            setSymbol("♙");
     }
+    
 }

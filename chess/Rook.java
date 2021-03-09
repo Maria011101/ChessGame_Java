@@ -2,6 +2,9 @@ package chess;
 
 public class Rook extends Piece{
     public Rook(PieceColour p){
-        setSymbol("♜");
+        if (p==PieceColour.BLACK)
+            setSymbol("♜");
+        else
+            setSymbol("♖");
     }
 }

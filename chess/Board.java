@@ -31,6 +31,23 @@ public class Board {
 		Board.setPiece(1,5,new Pawn(PieceColour.BLACK));
 		Board.setPiece(1,6,new Pawn(PieceColour.BLACK));
 		Board.setPiece(1,7,new Pawn(PieceColour.BLACK));
+		
+		Board.setPiece(6,0,new Pawn(PieceColour.WHITE));		
+		Board.setPiece(6,1,new Pawn(PieceColour.WHITE));
+		Board.setPiece(6,2,new Pawn(PieceColour.WHITE));
+		Board.setPiece(6,3,new Pawn(PieceColour.WHITE));
+		Board.setPiece(6,4,new Pawn(PieceColour.WHITE));
+		Board.setPiece(6,5,new Pawn(PieceColour.WHITE));
+		Board.setPiece(6,6,new Pawn(PieceColour.WHITE));
+		Board.setPiece(6,7,new Pawn(PieceColour.WHITE));		
+		Board.setPiece(7,0,new Rook(PieceColour.WHITE));		
+		Board.setPiece(7,1,new Knight(PieceColour.WHITE));		
+		Board.setPiece(7,2,new Bishop(PieceColour.WHITE));		
+		Board.setPiece(7,3,new Queen(PieceColour.WHITE));		
+		Board.setPiece(7,4,new King(PieceColour.WHITE));		
+		Board.setPiece(7,5,new Bishop(PieceColour.WHITE));		
+		Board.setPiece(7,6,new Knight(PieceColour.WHITE));		
+		Board.setPiece(7,7,new Rook(PieceColour.WHITE));
 	}
 	
 	//This method requires your input	
@@ -71,8 +88,15 @@ public class Board {
 	}
 	
 	//This method requires your input
-	public static boolean hasPiece(int i, int j){	
-		return true;
+	public static boolean hasPiece(int i, int j){
+		try{
+			Board.getPiece(i,j).getSymbol();
+			return true;
+		}
+		catch(Exception e){
+			return false;
+		}
+
 	}
 
 }
