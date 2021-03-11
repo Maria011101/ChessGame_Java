@@ -78,13 +78,16 @@ public class Game {
 			if(!check.checkCoordinateValidity(dest))
 				continue;
 
-			char i1char = origin.charAt(0);
-			char j1char = origin.charAt(1);
-			int i1 = Character.getNumericValue(i0char);
+			char i1char = dest.charAt(0);
+			char j1char = dest.charAt(1);
+			int i1 = Character.getNumericValue(i1char);
 			i1=i1-1;
 
 			int j1 = getJ(j1char);
-
+			System.out.println(i0);
+			System.out.println(j0);
+			System.out.println(i1);
+			System.out.println(j1);
 			Board.movePiece(i0, j0, i1, j1, PieceChosen);
 			round++;
 		}		
