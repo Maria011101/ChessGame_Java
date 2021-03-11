@@ -5,6 +5,14 @@ public class Square {
 	private boolean hasPiece;
 	private Piece p;
 	public boolean hasPiece(){
+		try{
+			getPiece().getSymbol();
+			hasPiece = true;
+		}
+		catch(Exception e){
+			hasPiece= false;
+		}
+
 		return hasPiece;
 	}	
 
@@ -13,5 +21,9 @@ public class Square {
 	}
 	public Piece getPiece(){
 		return p;
+	}
+
+	public void removePiece(){
+		p = null;
 	}
 }

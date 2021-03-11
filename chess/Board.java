@@ -74,6 +74,9 @@ public class Board {
 	
 	//This method requires your input	
 	public static boolean movePiece(int i0, int j0, int i1, int j1, Piece p){
+		board[i0][j0].removePiece();
+		setPiece(i1, j1, p);
+		printBoard();
 		return false;
 	}
 
@@ -89,14 +92,7 @@ public class Board {
 	
 	//This method requires your input
 	public static boolean hasPiece(int i, int j){
-		try{
-			Board.getPiece(i,j).getSymbol();
-			return true;
-		}
-		catch(Exception e){
-			return false;
-		}
-
+		return board[i][j].hasPiece();
 	}
 
 }
