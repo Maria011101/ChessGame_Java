@@ -38,13 +38,14 @@ public class Game {
 	//This method requires your input
 	public static void play(){
 		int round = 0;
+		PieceColour playercolor;
 		while (!gameEnd){
 			if(round % 2 == 0){
-				PieceColour playercolor = PieceColour.WHITE;
+				playercolor = PieceColour.WHITE;
 				System.out.println("----White's Turn----");
 			}
 			else{
-				PieceColour playercolor = PieceColour.BLACK;
+				playercolor = PieceColour.BLACK;
 				System.out.println("----Black's Turn----");
 			}
 			System.out.println("Enter your origin:");
@@ -71,6 +72,11 @@ public class Game {
 			else
 				System.out.println(PieceChosen);
 
+			if ( playercolor != PieceChosen.getColour())
+			{
+				System.out.println("Not you piece. Please choose your colour.");
+				continue;
+			}
 			System.out.println("Enter your destination:");
 			Scanner d = new Scanner(System.in);
 			String dest = d.nextLine();
