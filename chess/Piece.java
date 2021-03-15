@@ -1,7 +1,7 @@
 package chess;
 
 //This class requires your input
-public class Piece {
+public abstract class Piece {
 	private String symbol;
 	protected PieceColour colour;
 
@@ -14,29 +14,9 @@ public class Piece {
 	}
 
 	public PieceColour getColour(){
-		// switch(symbol){
-		// 	case "♝":
-		// 	case "♚":
-		// 	case "♛":
-		// 	case "♜":
-		// 	case "♟︎":
-		// 	case "♞":
-		// 		colour = PieceColour.BLACK;
-		// 		break;
-		// 	case "♗":
-		// 	case "♔":
-		// 	case "♕":
-		// 	case "♖":
-		// 	case "♙":
-		// 	case "♘":
-		// 		colour = PieceColour.WHITE;
-		// 		break;
-		// }
 		return colour;
 	}
 
-	public boolean isLegitMove(){
-		return true;
-	}
+	public abstract boolean isLegitMove(int i0, int j0, int i1, int j1);
 
 }

@@ -69,8 +69,6 @@ public class Game {
 				System.out.println("There is no piece.");
 				continue;
 			}
-			else
-				System.out.println(PieceChosen);
 
 			if ( playercolor != PieceChosen.getColour())
 			{
@@ -90,12 +88,14 @@ public class Game {
 			i1=i1-1;
 
 			int j1 = getJ(j1char);
-			System.out.println(i0);
-			System.out.println(j0);
-			System.out.println(i1);
-			System.out.println(j1);
-			Board.movePiece(i0, j0, i1, j1, PieceChosen);
-			round++;
+			if(PieceChosen.isLegitMove(i0, j0, i1, j1)){
+				Board.movePiece(i0, j0, i1, j1, PieceChosen);
+				round++;
+			}
+			else{
+				System.out.println("Not a valid move.");
+				continue;
+			}
 		}		
 	}
 	
