@@ -105,4 +105,4 @@ public class Game {
 		Board.initialisePieces();
 		Board.printBoard();
 		Game.play();	}
-}
+	}
