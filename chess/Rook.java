@@ -1,7 +1,7 @@
 package chess;
 
-import javax.lang.model.util.ElementScanner6;
-import javax.lang.model.util.ElementScanner7;
+// import javax.lang.model.util.ElementScanner6;
+// import javax.lang.model.util.ElementScanner7;
 
 public class Rook extends Piece{
     public Rook(PieceColour p){
