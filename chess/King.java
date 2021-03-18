@@ -16,10 +16,19 @@ public class King extends Piece{
         dif1 = java.lang.Math.abs(dif1);
         dif2 = java.lang.Math.abs(dif2);
         if((dif1 == 0 || dif1 == 1) && (dif2 == 0 || dif2 == 1)){
-            return true;
+            if(Board.hasPiece(i1, j1) == false)
+                return true;
+            else {
+                Piece p1 = Board.getPiece(i1, j1);
+                Piece p0 = Board.getPiece(i0, j0);
+                if(p0.getColour() == p1.getColour())
+                    return false;
+                else
+                    return true;
+            }
         }
         else
             return false;
-    }
 	
+    }
 }

@@ -48,17 +48,21 @@ public class Game {
 				playercolor = PieceColour.BLACK;
 				System.out.println("----Black's Turn----");
 			}
+			// Origin piece input
 			System.out.println("Enter your origin:");
 			Scanner o1 = new Scanner(System.in);
 			String origin = o1.nextLine();
 
+			// checking to see if the input is valid
 			CheckInput check = new CheckInput();
 			if(!check.checkCoordinateValidity(origin))
 				continue;
-
+			
+			// breaking up the string
 			char i0char = origin.charAt(0);
 			char j0char = origin.charAt(1);
 
+			// casting i0 into an integer
 			int i0 = Character.getNumericValue(i0char);
 			i0=i0-1;
 
@@ -89,13 +93,15 @@ public class Game {
 
 			int j1 = getJ(j1char);
 			if(PieceChosen.isLegitMove(i0, j0, i1, j1)){
-				Board.movePiece(i0, j0, i1, j1, PieceChosen);
+				if(Board.movePiece(i0, j0, i1, j1, PieceChosen))
+					gameEnd = true;
 				round++;
 			}
 			else{
 				System.out.println("Not a valid move.");
 				continue;
 			}
+
 		}		
 	}
 	

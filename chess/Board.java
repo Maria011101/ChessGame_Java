@@ -74,9 +74,19 @@ public class Board {
 	
 	//This method requires your input	
 	public static boolean movePiece(int i0, int j0, int i1, int j1, Piece p){
+
 		board[i0][j0].removePiece();
 		setPiece(i1, j1, p);
 		printBoard();
+		int king = 0;
+		for(int i=0; i<8;i++)
+			for(int j=0;j<8;j++)
+				{
+				if(board[i][j].getPiece() instanceof King)
+					king++;
+				}
+		if(king != 2)
+			return true;
 		return false;
 	}
 

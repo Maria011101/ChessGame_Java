@@ -4,6 +4,11 @@ public class CheckInput {
 	
 	//This method requires your input
 	public boolean checkCoordinateValidity(String input){
+		if(input.length() != 2)
+		{
+			System.out.println("Not okay");
+			return false;
+		}
 		char ichar = input.charAt(0);
 		char j = input.charAt(1);
 		int i = Character.getNumericValue(ichar);

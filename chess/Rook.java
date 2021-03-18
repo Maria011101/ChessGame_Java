@@ -1,7 +1,5 @@
 package chess;
 
-// import javax.lang.model.util.ElementScanner6;
-// import javax.lang.model.util.ElementScanner7;
 
 public class Rook extends Piece{
     public Rook(PieceColour p){
@@ -13,12 +11,56 @@ public class Rook extends Piece{
             setSymbol("♖");
     }
     @Override
-    public boolean isLegitMove(int i0, int j0, int i1, int j1){
+    public boolean isLegitMove(int i0, int j0, int i1, int j1)
+    {
+        // if it's a horizontal straight line it might be a valid move
         if((i0 == i1) && (j0 != j1))
-            return true;
+        {
+            // check to see if destination square is empty
+            if(Board.hasPiece(i1, j1) == false)
+            {
+                // checking to see if the path is empty
+                for(int j=Math.min(j0,j1)+1; j<Math.max(j0,j1); j++)
+                    if(Board.hasPiece(i0,j))
+                        return false;
+                return true;
+            }
+            // if destination square is not empty, we check to see if it's a different colour
+            else {
+                Piece p1 = Board.getPiece(i1, j1);
+                Piece p0 = Board.getPiece(i0, j0);
+                if(p0.getColour() == p1.getColour())
+                    return false;
+                else
+                    return true;
+            }
+        }
+        // if it's not a horizontal straight line it might be a vertical one
         else if((i0 != i1) && (j0 == j1))
-            return true;
-        else
-            return false;
+            {
+                // checking to see if destination square is empty
+                if(Board.hasPiece(i1, j1) == false)
+                    {
+                    // checking the path is empty
+
+                    for(int k=Math.min(i0,i1)+1; k<Math.max(i0,i1); k++)
+                        if(Board.hasPiece(k,j0))
+                            return false;
+                        
+                        return true;
+                    }
+                // if destination square is not empty, we check to see if it's a different colour
+                else {
+                    Piece p1 = Board.getPiece(i1, j1);
+                    Piece p0 = Board.getPiece(i0, j0);
+                    if(p0.getColour() == p1.getColour())
+                        return false;
+                    else
+                        return true;
+                }
+            }
+        // if it's not a vertical or horizontal line, it's not valid
+        //else
+        return false;
     }
 }
