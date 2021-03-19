@@ -37,7 +37,7 @@ public class Bishop extends Piece{
                     case 0:
                         int i=i0+1;
                         int j=j0+1;
-                            
+                        // checking if the path to the destination is empty
                         while(dif1 != 0)
                         {
                             if(Board.hasPiece(i,j))
@@ -61,7 +61,7 @@ public class Bishop extends Piece{
                     case 1:
                         int k=i0+1;
                         int l=j0-1;
-                            
+                        // checking if the path to the destination is empty    
                         while(dif1 != 0)
                         {
                             if(Board.hasPiece(k,l))
@@ -85,7 +85,7 @@ public class Bishop extends Piece{
                     case 2:
                         int q=i0-1;
                         int r=j0-1;
-                            
+                        // checking if the path to the destination is empty    
                         while(dif1 != 0)
                         {
                             if(Board.hasPiece(q,r))
@@ -110,8 +110,7 @@ public class Bishop extends Piece{
                     case 3:
                         int x=i0-1;
                         int y=j0+1;
-
-                            
+                        // checking if the path to the destination is empty    
                         while(dif1 != 0)
                         {
 

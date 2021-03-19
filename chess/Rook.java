@@ -56,6 +56,10 @@ public class Rook extends Piece{
                     if(p0.getColour() == p1.getColour())
                         return false;
                     else
+                        for(int h=Math.min(i0,i1)+1; h<Math.max(i0,i1); h++)
+                        if(Board.hasPiece(h,j0))
+                            return false;
+                        
                         return true;
                 }
             }

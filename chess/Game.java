@@ -37,8 +37,10 @@ public class Game {
 	}
 	//This method requires your input
 	public static void play(){
+		// round will count the rounds and keep track of the players' turns
 		int round = 0;
 		PieceColour playercolor;
+
 		while (!gameEnd){
 			if(round % 2 == 0){
 				playercolor = PieceColour.WHITE;
@@ -48,10 +50,18 @@ public class Game {
 				playercolor = PieceColour.BLACK;
 				System.out.println("----Black's Turn----");
 			}
+
 			// Origin piece input
 			System.out.println("Enter your origin:");
 			Scanner o1 = new Scanner(System.in);
 			String origin = o1.nextLine();
+			origin = origin.toLowerCase();
+
+			if(origin.equals("end"))
+			{
+				gameEnd = true;
+				break;
+			}
 
 			// checking to see if the input is valid
 			CheckInput check = new CheckInput();
@@ -66,8 +76,10 @@ public class Game {
 			int i0 = Character.getNumericValue(i0char);
 			i0=i0-1;
 
+			// using the getJ method to get j0 as an integer
 			int j0 = getJ(j0char);
 
+			// getting the piece and the checking to see if it is the right colour
 			Piece PieceChosen = Board.getPiece(i0, j0);
 			if(PieceChosen == null){
 				System.out.println("There is no piece.");
@@ -76,23 +88,37 @@ public class Game {
 
 			if ( playercolor != PieceChosen.getColour())
 			{
-				System.out.println("Not you piece. Please choose your colour.");
+				System.out.println("Not your piece. Please choose your colour.");
 				continue;
 			}
+
+			// destination coordinates input
 			System.out.println("Enter your destination:");
 			Scanner d = new Scanner(System.in);
 			String dest = d.nextLine();
 
+			dest = dest.toLowerCase();
+
+			if(dest.equals("end"))
+			{
+				gameEnd = true;
+				break;
+			}
+
 			if(!check.checkCoordinateValidity(dest))
 				continue;
 
+			// getting the individual coordinates
 			char i1char = dest.charAt(0);
 			char j1char = dest.charAt(1);
 			int i1 = Character.getNumericValue(i1char);
 			i1=i1-1;
 
 			int j1 = getJ(j1char);
+
+			// checking to see if it is a legit move
 			if(PieceChosen.isLegitMove(i0, j0, i1, j1)){
+				// if the king was captured the game ends
 				if(Board.movePiece(i0, j0, i1, j1, PieceChosen))
 					gameEnd = true;
 				round++;

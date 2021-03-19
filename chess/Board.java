@@ -82,9 +82,11 @@ public class Board {
 		for(int i=0; i<8;i++)
 			for(int j=0;j<8;j++)
 				{
+					// counting how many kings are on the board
 				if(board[i][j].getPiece() instanceof King)
 					king++;
 				}
+		// if there aren't 2 kings the game will end
 		if(king != 2)
 			return true;
 		return false;
