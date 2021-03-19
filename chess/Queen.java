@@ -38,7 +38,7 @@ public class Queen extends Piece{
         else if((i0 != i1) && (j0 == j1))
             {
                 // checking to see if destination square is empty
-                if(Board.hasPiece(i1, j1) == false)
+                if(!Board.hasPiece(i1, j1))
                     {
                     // checking the path is empty
 
@@ -55,6 +55,10 @@ public class Queen extends Piece{
                     if(p0.getColour() == p1.getColour())
                         return false;
                     else
+                        for(int h=Math.min(i0,i1)+1; h<Math.max(i0,i1); h++)
+                        if(Board.hasPiece(h,j0))
+                            return false;
+                        
                         return true;
                 }
             }
